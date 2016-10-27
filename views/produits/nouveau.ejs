@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/semantic.min.css' />
+  <script src='/javascripts/jquery-3.1.1.min.js'></script>
+	<script src='/javascripts/semantic.min.js'></script>
+   </head>
+  <body>
+  <% include ../templates/nav.ejs %>
+    <h1 class="ui header blue dividing">Nouveau Produit </h1>
+    <div class="ui container ">
+    <div class="form-nv">
+      <form action="/add" class="ui form" method="POST">
+        <div class="ui field">
+        <label for="nom">Nom du produit</label>
+        <input type="text" name="nom" id="" placeholder="nom">
+       </div>
+         <div class="ui two fields">
+            <div class="ui field">
+        <label for="nom">Prix</label>
+        <input type="text" name="prix" id="" placeholder="prix">
+       </div>
+        <div class="ui field">
+        <label for="nom">Stock</label>
+        <input type="text" name="stock" id="" placeholder="stock">
+       </div>
+         </div>
+         <button class="ui button basic black">Ajouter produit</button>
+         <div class="ui message alert error"></div>
+      </form>
+   
+        <% if  ( typeof info !== 'undefined' && info ) {%>
+        <div class="ui message success">
+          <i class="close icon"></i>
+          <div class="header">Produit enregistré</div>
+          <p><%= info %></p>
+        </div>
+      <% } %>
+    </div>
+    
+    </div>
+    <script src="/javascripts/validation.js"></script>  
+    <script src="/javascripts/main.js"></script>  
+
+  </body>
+
+</html>

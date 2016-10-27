@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/semantic.min.css' />
+  <script src='/javascripts/jquery-3.1.1.min.js'></script>
+	<script src='/javascripts/semantic.min.js'></script>
+   </head>
+  <body>
+  <% include ../templates/nav.ejs %>
+    <h1 class="ui header blue dividing">Liste Produits </h1>
+    
+      <table class="ui table celled" id="my-table">
+        <thead>
+          <tr>
+            <th>id</th><th>nom</th><th> prix</th> <th>stock</th><th>date</th> <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+       
+          <% produits.forEach(function(pro){%>
+ <tr>
+    <td id="id_produit"><%= pro.id %></td>
+    <td><%= pro.nom %></td>
+
+    <td><%= pro.prix %></td>
+
+    <td><%= pro.stock %></td>
+    <td><%= pro.date %></td>
+    <td><a href="/liste" data-tooltip='Supprimer' id="btn-supp" data-inverted class="ui button basic icon" > <i class="trash icon"></i> </a> <a href="/modif/<%=pro.id %>" data-tooltip='modifier' data-inverted class="ui button basic icon"> <i class="write icon"></i> </a></td>
+   </tr>
+          <% }); %>
+
+        </tbody>
+      </table>
+    <script src="/javascripts/produits.js"></script>
+  </body>
+</html>
